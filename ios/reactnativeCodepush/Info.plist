@@ -24,6 +24,8 @@
 	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>CodePushDeploymentKey</key>
+    <string>7v6RuX11uWXSr6Sp38KoB_4e3qN7E1cAmViH-</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

@@ -12,6 +12,8 @@
 #import "RCTBundleURLProvider.h"
 #import "RCTRootView.h"
 
+#import "CodePush.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -19,7 +21,14 @@
   NSURL *jsCodeLocation;
 
   [[RCTBundleURLProvider sharedSettings] setDefaults];
-  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
+  
+  #ifdef DEBUG
+    jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios"
+  #else
+    jsCodeLocation = [CodePush bundleURL];
+  #endif
+  
+   fallbackResource:nil];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"reactnativeCodepush"
